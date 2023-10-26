@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Bilbo+Swash+Caps&family=Concert+One&family=Creepster&family=East+Sea+Dokdo&family=IBM+Plex+Sans:wght@300&family=Lato&family=Love+Light&family=Love+Ya+Like+A+Sister&family=Loved+by+the+King&family=Lovers+Quarrel&family=Montserrat&family=Newsreader&family=Pacifico&family=Playfair+Display&family=Playfair+Display+SC&family=Poppins&family=Rampart+One&family=Roboto&family=Roboto+Flex:wght@800&display=swap"
+        rel="stylesheet">
+    <!-- boxicons cdn link -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" /> -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+    <title>Weather Application</title>
+    <style></style>
+        
+</head>
+
+<body>
+    <div class="container">
+        <div class="frontpage">
+            <div class="frontpage-contents">
+                <img src="https://cdn-icons-png.flaticon.com/512/1779/1779882.png" alt="weather-front-image"
+                    class="weather-front-image">
+                <h2>Weather <span style="font-size: 30px;font-weight: 100;">Forecasts</span></h2>
+                <button type="button" name="" class="getting-started-btn">Get Start</button>
+                <p>Check any weather</p>
+            </div>
+        </div>
+        <!-- weather input code starts -->
+        <div class="weather-container">
+            <div class="weatherInputField">
+                <i class='bx bx-search-alt'></i>
+                <input class="citySearch" type="text" name="" placeholder="Search City...">
+                <button type="button" name="" class="searchBtn">Search</button>
+            </div>
+            <div class="weatherInput">
+                <div class="location-data">
+                    <div class="location-content">
+                        <i class='bx bxs-map'></i>
+                        <h3>-----</h3>
+                    </div>
+                    <p>Date Month Year</p>
+                </div>
+                <div class="weather-Degree">
+                    <h1>--°</h1>
+                    <!-- <img src="https://openweathermap.org/img/wn/10n@4x.png" alt="weather-Degree-image" class="weather-Degree-img"> -->
+                    <h2>-----</h2>
+                </div>
+                <div class="weather-pallete">
+                    <div class="pallete-data">
+                        <i class='bx bx-water'></i>
+                        <small>-- M/B</small>
+                        <span>Pressure</span>
+                    </div>
+                    <div class="pallete-data">
+                        <i class='bx bxs-droplet-half'></i>
+                        <small>-- %</small>
+                        <span>Humidity</span>
+                    </div>
+                    <div class="pallete-data">
+                        <i class='bx bx-wind'></i>
+                        <small>-- M/S</small>
+                        <span>wind Speed</span>
+                    </div>
+                </div>
+            </div>
+            <!-- weather input code ends -->
+            <!-- weather forecasts code starts -->
+            <div class="swiper mySwiper weather-forecasts">
+                <h3>5 Days Weather Forecast (Slide)</h3>
+                <ul class="swiper-wrapper weather-ul">
+                    <li class="swiper-slide weather-data">
+                        <span>-- -- --</span>
+                        <!-- <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="forecast-image" class="forecast-img"> -->
+                        <!-- <div class="icon-overlay"></div> -->
+                        <small>--°</small>
+                    </li>
+                    <li class="swiper-slide weather-data">
+                        <span>-- -- --</span>
+                        <!-- <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="forecast-image" class="forecast-img"> -->
+                        <!-- <div class="icon-overlay"></div> -->
+                        <small>--°</small>
+                    </li>
+                    <li class="swiper-slide weather-data">
+                        <span>-- -- --</span>
+                        <!-- <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="forecast-image" class="forecast-img"> -->
+                        <!-- <div class="icon-overlay"></div> -->
+                        <small>--°</small>
+                    </li>
+                    <li class="swiper-slide weather-data">
+                        <span>-- -- --</span>
+                        <!-- <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="forecast-image" class="forecast-img"> -->
+                        <!-- <div class="icon-overlay"></div> -->
+                        <small>--°</small>
+                    </li>
+                    <li class="swiper-slide weather-data">
+                        <span>-- -- --</span>
+                        <!-- <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="forecast-image" class="forecast-img"> -->
+                        <!-- <div class="icon-overlay"></div> -->
+                        <small>--°</small>
+                    </li>
+                    <!-- <li class="swiper-slide weather-data">
+                        <span>-- -- --</span>
+                        <small>--°</small>
+                    </li>
+                    <li class="swiper-slide weather-data">
+                        <span>-- -- --</span>
+                        <small>--°</small>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- weather forecasts code ends -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- <script src="index1.js"></script> -->
+    <!-- Initialize Swiper -->
+    <script defer>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 3,
+          spaceBetween: 15,
+          freeMode: true,
+        });
+    
+    //working on weather updates
+        const searchBtn = document.querySelector('.searchBtn');
+        const cityNameInput = document.querySelector('.citySearch');
+        const apiKey = 'b8e6343adb114d2c88af0939f6b1a6c4';
+        const weeks = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+        const WeatherDegree = document.querySelector('.weatherInput');
+        const locationData = document.querySelector('.location-data');
+        const weatherPallete = document.querySelector('.weather-pallete');
+        const weatherUL = document.querySelector('.weather-ul');
+    
+        const gettingStartedBtn = document.querySelector('.getting-started-btn');
+    
+        gettingStartedBtn.addEventListener('click',function(){
+            const defaultCityName = "Delhi";
+    const defaultLat = 28.6139; // Latitude for Delhi
+    const defaultLon = 77.2090; // Longitude for Delhi
+
+    // Call the function to get weather details for Delhi
+    gettingWeatherDetails(defaultCityName, defaultLat, defaultLon);
+             document.querySelector('.frontpage').classList.add('active');
+             document.querySelector('.weather-container').classList.add('active');
+        })
+    
+    // creating a function named createWeatherCard
+        function createWeatherCard(cityName2, weatherItem2, index2)
+        {
+            if(index2 === 0)
+            {
+                return `
+                <div class="location-data">
+                <div class="location-content">
+                <i class='bx bxs-map'></i>
+                <h3>${cityName2}</h3>
+                </div>
+                <p>${weatherItem2.dt_txt.split(' ')[0]}</p>
+                </div>
+                <div class="weather-Degree">
+                <h1>${(weatherItem2.main.temp - 273.15).toFixed(2)}°</h1>
+                <img src="https://openweathermap.org/img/wn/${weatherItem2.weather[0].icon}@4x.png" alt="weather-Degree-image" class="weather-Degree-img">
+                <h2>${weatherItem2.weather[0].description}</h2>
+                </div>
+                <div class="weather-pallete">
+                <div class="pallete-data">
+                    <i class='bx bx-water'></i>
+                    <small>${weatherItem2.main.pressure} M/B</small>
+                    <span>Pressure</span>
+                </div>
+                <div class="pallete-data">
+                    <i class='bx bxs-droplet-half' ></i>
+                    <small>${weatherItem2.main.humidity}%</small>
+                    <span>Humidity</span>
+                </div>
+                <div class="pallete-data">
+                    <i class='bx bx-wind' ></i>
+                    <small>${weatherItem2.wind.speed} M/S</small>
+                    <span>wind Speed</span>
+                </div>
+                </div>
+                `
+            }
+            else
+            {
+                return `
+                <li class="swiper-slide weather-data" style="margin-right:20px; width:33%;">
+                    <span>${weatherItem2.dt_txt.split(' ')[0]}</span>
+                    <img src="http://openweathermap.org/img/wn/${weatherItem2.weather[0].icon}@2x.png" alt="forecast-image" class="forecast-img">
+                    <div class="icon-overlay"></div>
+                    <small>${(weatherItem2.main.temp - 273.15).toFixed(2)}°</small>
+                </li>
+                `
+            }
+        }
+    
+    
+    
+    //creating a function named gettingWeatherDetails
+        function gettingWeatherDetails(cityWeather, lat, lon)
+        {
+            const weather_api_url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    
+            fetch(weather_api_url).then(res=>res.json()).then(data=>{
+    
+                const forecastDays = [];
+                const fiveDaysForecast = data.list.filter(function(forecast){
+                const forecastdate = new Date(forecast.dt_txt).getDate();
+                if(!forecastDays.includes(forecastdate))
+                {
+                    return forecastDays.push(forecastdate);
+                }
+                });
+                console.log(data);
+
+                // const weatherdata=data.list.slice(0, 8);
+                // const fiveDaysForecast = weatherdata.map(function(forecast){
+                // const forecastdate = new Date(forecast.dt_txt).getDate();
+                // if(!forecastDays.includes(forecastdate))
+                // {
+                //     return forecastDays.push(forecastdate);
+                // }
+                // });
+                //when weather is fetched the HTML elements is removed and new will be added
+    
+                cityNameInput.value = "";
+                WeatherDegree.innerHTML = "";
+                locationData.innerHTML ="";
+                weatherPallete.innerHTML ="";
+                weatherUL.innerHTML = "";
+                // console.log(fiveDaysForecast)
+    
+                fiveDaysForecast.forEach(function(weatherItem,index){
+    
+                    if(index === 0)
+                    {
+                        WeatherDegree.insertAdjacentHTML('beforeend',createWeatherCard(cityWeather, weatherItem, index));
+                    }
+                    else
+                    {
+                        weatherUL.insertAdjacentHTML('beforeend',createWeatherCard(cityWeather, weatherItem, index));
+                    }
+                });
+    
+    
+            }).catch(() =>{
+                alert('Error Occured While Fetching the Coordinates of Weather');
+            });
+        }
+    
+    //working on search Button 
+        searchBtn.addEventListener('click',function(){
+            const cityName = cityNameInput.value.trim();//trim to remove extra spaces
+            if(cityName == "")
+                {
+                    alert("Please Enter the City Name");
+                    return;
+                }
+            else
+            {
+                const geocoding_api_url = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`;
+                fetch(geocoding_api_url).then(res =>res.json()).then(data=>{
+                    if(!data.length) //if you enter wrong keyword or city name
+                    {
+                        return alert(`${cityName} isn't a valid city Name`);
+                    }
+                    else
+                    {
+                        const { name,lat,lon } = data[0]; //storing the value of Name,latitute and value of longitude in data array
+                        gettingWeatherDetails(name, lat, lon);//Now We have to create a function named gettingWeatherDetails
+                    }
+                        
+                    
+                    // console.log(data);
+    
+                }).catch(()=>{
+                    alert("Error Occured While Fetching the Coordinates");
+                })
+            }
+        })
+    
+      </script>
+</body>
+
+</html>
